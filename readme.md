@@ -15,25 +15,16 @@ From the instructions given, the following assumptions can be deducted from it:
 - If no index exists then output -1
 
 ###Code Snippet
-Here the input can be read from a text file, but for the anagram checker you can just use a list of string that originates from anywhere else as well:
+To use the equilibrium get, just call the following on the pre-created list of integers:
 ```javascript
-var path = Path.Combine(Directory.GetCurrentDirectory().ToString(), "wordlist.txt");
-var words = path.readFile();
+var input = new List<int> { 1, 2, 3, 4, 5, 7, 8, 10, 12 };
+var equivalenceIndex = input.getEquilibrium();
 ```
 
-Using the list of string, which is our "anagram library", we can now identify all the anagrams for a specific input:
-```javascript
-var input = "horse";
-var anagramsFound = getAllAnagrams(words, input); 
+This will yield the following for the equivalenceIndex:
 ```
-
-This will yeild the following results in the anagramsFound list:
+equivalenceIndex = 6
 ```
-heros
-horse
-shore
-```
-
 
 ##Installation
 To run this app, you'll need .NET 4.5 or higher installed on your machine, and to open up the project file you'll need Visual Studio. Other than that, no installation required. Microsoft .NET Framework 4.5 can be installed by downloading it from the microsoft website.
