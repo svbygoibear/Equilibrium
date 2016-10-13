@@ -14,7 +14,7 @@ namespace Equilibrium {
             if (numbers.Count == 0)
                 return -1;
 
-            return calculateEquilibrium(numbers, getSum(numbers), 0, 0);
+            return calculateEquilibrium(numbers, getSum(numbers) - numbers[0] , 0, 1);
         }
 
         /// <summary>
@@ -27,12 +27,12 @@ namespace Equilibrium {
         /// <returns>The first point(index) of equivalence found.</returns>
         private static int calculateEquilibrium(List<int> numbers, int leftAmount, int rightAmount, int curr) {
             if (rightAmount == leftAmount)
-                return curr - 1;
+                return curr -1;
             else if (rightAmount > leftAmount)
                 return -1;
             else
                 return calculateEquilibrium(numbers, leftAmount - numbers[curr],
-                    curr > 0 ? getSumFromRight(numbers, curr) : 0, curr + 1);
+                    getSumFromRight(numbers, curr), curr + 1);
         }
 
         /// <summary>
